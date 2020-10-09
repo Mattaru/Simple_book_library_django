@@ -1,5 +1,6 @@
 *.pyc
 env
+.idea
 .vscode
 my_site/my_site/__pycache__
 my_site/p_library/__pycache__

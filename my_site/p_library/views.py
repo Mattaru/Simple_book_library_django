@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from p_library.models import Book, Publishing_house
 from django.template import loader
-from django.shortcuts import redirect
+from p_library.models import Book, Publishing_house, Author
+from p_library.forms import AuthorForm
+from django.views.generic import CreateView, ListView
+from django.urls import reverse_lazy
 
 # Create your views here.
 def ph_list(request):
@@ -54,3 +56,15 @@ def book_decrement(request):
         return redirect('/index/')
     else:
         return redirect('/index/')
+
+
+class AuthorEdit(CreateView):
+    model = Author
+    form_class = AuthorForm
+    success_url = reverse_lazy('p_library:author_list')
+    template_name = 'author_edit.html'
+
+
+class AuthorList(ListView):
+    model = Author
+    template_name = 'authors_list.html'

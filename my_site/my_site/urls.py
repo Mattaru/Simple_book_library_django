@@ -17,10 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from p_library import views
 
+app_name = 'p_library'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('publishing_house_list/', views.ph_list),
     path('index/', views.index),
     path('index/book_increment/', views.book_increment),
-    path('index/book_decrement/', views.book_decrement)
+    path('index/book_decrement/', views.book_decrement),
+    path('author/create', views.AuthorEdit.as_view(), name='author_create'),
+    path('authors', views.AuthorList.as_view(), name='author_list')
 ]
+
