@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from p_library import views
 
-app_name = 'p_library'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('publishing_house_list/', views.ph_list),
