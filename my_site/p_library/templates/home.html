@@ -12,9 +12,17 @@
             <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">The list of a publishing houses:</h4>
             </div>
+
             <ul class="list-group">
                 {% for house in publishing_houses %}
-                <li class="list-group-item">{{ forloop.counter }} - {{ house.name }}</li>
+                <li class="list-group-item">
+                    <h5>{{ forloop.counter }} - {{ house.name }}</h5>
+                    <ul class="list-group list-group-flush">
+                        {% for book in house.book_ph.all %}
+                        <li class="list-group-item">{{ book.title }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
                 {% endfor %}
             </ul>
         </div>
