@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 
 # Create your models here.
 class Author(models.Model):
@@ -22,11 +23,11 @@ class Book(models.Model):
     title = models.TextField(verbose_name='Book title')
     description = models.TextField(verbose_name='Description')
     year_release = models.SmallIntegerField(verbose_name='Year release')
-    author = models.ForeignKey(Author, verbose_name='Author', on_delete=models.CASCADE,
+    author = models.ForeignKey('p_library.Author', verbose_name='Author', on_delete=models.CASCADE,
                                related_name='book_author')
     copy_count = models.SmallIntegerField(verbose_name='Copy count', default=1)
     price= models.DecimalField(verbose_name='Price', max_digits=6, decimal_places=2, default=0)
-    publishing_house = models.ForeignKey(Publishing_house, verbose_name='Publishing house',
+    publishing_house = models.ForeignKey('p_library.Publishing_house', null=True, verbose_name='Publishing house',
                                          on_delete=models.CASCADE, related_name='book_ph')
 
     def __str__(self):
