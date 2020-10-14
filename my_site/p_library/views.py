@@ -1,18 +1,15 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.http.response import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.forms import formset_factory
-
 
 from p_library.models import Book, Publisher, Author
 from p_library.forms import AuthorForm, BookForm
 
 
-# Create your views here.
-class AuthorEdit(CreateView):
+class AuthorCreate(CreateView):
     model = Author
     form_class = AuthorForm
     success_url = reverse_lazy('p_library:author_list')
@@ -21,7 +18,22 @@ class AuthorEdit(CreateView):
 
 class AuthorList(ListView):
     model = Author
-    template_name = 'authors_list.html'
+    template_name = 'author_list.html'
+
+
+class AuthorUpdate(UpdateView):
+    model = Author
+    success_url = reverse_lazy('p_library:author_list')
+    fields = ['full_name', 'birth_year', 'country']
+    template_name = 'author_edit.html'
+
+
+class AuthorDelete(DeleteView):
+    model = Author
+    form_class = AuthorForm
+    fields = ['full_name', 'birth_year', 'country']
+    success_url = reverse_lazy('p_library:author_list')
+    template_name = 'author_delete.html'
 
 
 def publishers_list(request):

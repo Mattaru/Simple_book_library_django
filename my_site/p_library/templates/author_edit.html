@@ -2,14 +2,21 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Форма создания и редактирования Авторов</title>
+        <title>Form for author create and edit</title>
     </head>
 
     <body>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Сохранить">
+            <table>
+                {{ form }}
+            </table>
+            <p>
+                <input type="submit" value="Save">
+            </p>
+        </form>
+        <form action="delete/">
+            <button>Delete</button>
         </form>
     </body>
 </html>

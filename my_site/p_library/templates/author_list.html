@@ -2,14 +2,17 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Список авторов</title>
+        <title>Authors list</title>
     </head>
 
     <body>
         <ul>
             {% for author in object_list %}
-                <li>{{ author.full_name }}</li>
+                <li><a href="{{author.id}}/">{{ author.full_name }}</a></li>
             {% endfor %}
         </ul>
+        <form action="create/">
+            <input type="submit" value="Create">
+        </form>
     </body>
 </html>
