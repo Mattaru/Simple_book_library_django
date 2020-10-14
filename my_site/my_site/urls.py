@@ -20,9 +20,9 @@ from p_library import views
 urlpatterns = [
     path('', include('p_library.urls')),
     path('admin/', admin.site.urls),
-    path('publishing_house_list/', views.ph_list),
-    path('index/', views.index),
+    path('', views.index),
     path('index/book_increment/', views.book_increment),
-    path('index/book_decrement/', views.book_decrement)
+    path('index/book_decrement/', views.book_decrement),
+    path('publishers/', views.publishers_list),
 ]
 

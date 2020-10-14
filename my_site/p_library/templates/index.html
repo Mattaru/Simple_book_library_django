@@ -25,6 +25,7 @@
                         <th scope="col">Year release</th>
                         <th scope="col">Author name</th>
                         <th scope="col">Country</th>
+                        <th scope="col">Reader</th>
                         <th scope="col">Copy count</th>
                         <th scope="col">add/del copy</th>
                     </tr>
@@ -39,6 +40,7 @@
                         <td>{{ book.year_release }}</td>
                         <td>{{ book.author.full_name }}</td>
                         <td>{{ book.author.country }}</td>
+                        <td>{{ book.reader.full_name }}</td>
                         <td>{{ book.copy_count }}</td>
                         <td>
                             <form action="/index/book_increment/" method="post" enctype="multipart/form-data">
