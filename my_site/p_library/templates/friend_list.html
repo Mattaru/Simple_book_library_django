@@ -18,16 +18,16 @@
 
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="../">Books</a>
+                    <a class="nav-link" href="/">Books</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../author/">Autors</a>
+                    <a class="nav-link" href="/author/">Autors</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="friend/">Friends</a>
+                    <a class="nav-link active" href="/friend/">Friends</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../publishers/">Publishers</a>
+                    <a class="nav-link" href="/publishers/">Publishers</a>
                 </li>
             </ul>
 
@@ -48,7 +48,7 @@
                     {% for friend in object_list %}
                     <tr>
                         <th scope="row">{{ forloop.counter }}</th>
-                        <td><a href="{{author.id}}/">{{ friend.full_name }}</a></td>
+                        <td><a href="{{friend.id}}/">{{ friend.full_name }}</a></td>
                         <td>{{ friend.birth_year }}</td>
                         <td>
                             <ul>
