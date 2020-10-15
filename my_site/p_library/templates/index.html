@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>My library</title>
         <link rel="stylesheet"
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -15,7 +16,22 @@
                 <p><mark><strong>{{ books|length }}</strong></mark> books from my library collected here.</p>
             </div>
 
-            <table class="table">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="author/">Autors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="friend/">Friends</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="publishers/">Publishers</a>
+                </li>
+            </ul>
+
+            <table class="table" style="margin-top: 5px">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">N</th>

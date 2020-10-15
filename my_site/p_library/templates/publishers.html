@@ -11,10 +11,26 @@
     <body>
         <div class="container">
             <div class="alert alert-success" role="alert">
-            <h4 class="alert-heading">The list of a publishing houses:</h4>
+                    <h4 class="alert-heading">Welcome to 'My library'</h4>
+                    <p>All books from my library collected here.</p>
             </div>
 
-            <ul class="list-group">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="../">Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../author/">Autors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="friend/">Friends</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../publishers/">Publishers</a>
+                </li>
+            </ul>
+
+            <ul class="list-group" style="margin-top: 5px">
                 {% for publisher in publishers %}
                 <li class="list-group-item">
                     <h5>{{ forloop.counter }} - {{ publisher.name }}</h5>

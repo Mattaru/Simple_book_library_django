@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Form for friend delete</title>
+        <title>Form for friend create and edit</title>
         <link rel="stylesheet"
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
@@ -10,8 +10,6 @@
     </head>
 
     <body>
-
-
         <div class="container">
             <div class="alert alert-success" role="alert">
                     <h4 class="alert-heading">Welcome to 'My library'</h4>
@@ -20,31 +18,28 @@
 
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="../../../">Books</a>
+                    <a class="nav-link" href="../../">Books</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../../author/">Autors</a>
+                    <a class="nav-link active" href="author/">Autors</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="friend/">Friends</a>
+                    <a class="nav-link" href="../../friend/">Friends</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../../publishers/">Publishers</a>
+                    <a class="nav-link" href="../../publishers/">Publishers</a>
                 </li>
             </ul>
 
-            <div style="margin: 40px 0 40px 0">
-                <p>Are you shure want to delete this friend?</p>
-            </div>
-            <div style="display: flex">
-                <form method="POST" style="margin: 20px 10px">
-                    {% csrf_token %}
-                    <input type="submit" value="Yes">
-                </form>
-                <form action="../" style="margin: 20px 10px">
-                    <input type="submit" value="No">
-                </form>
-            </div>
+            <form method="post" style="margin: 40px 0">
+                {% csrf_token %}
+                <table>
+                    {{ form }}
+                </table>
+                <p style="margin-top: 40px">
+                    <input type="submit" value="Save">
+                </p>
+            </form>
 
         </div>
 

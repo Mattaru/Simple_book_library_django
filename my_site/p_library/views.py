@@ -13,7 +13,7 @@ class AuthorCreate(CreateView):
     model = Author
     form_class = AuthorForm
     success_url = reverse_lazy('p_library:author_list')
-    template_name = 'author_edit.html'
+    template_name = 'author_create.html'
 
 
 class AuthorList(ListView):
@@ -40,7 +40,7 @@ class FriendCreate(CreateView):
     model = Friend
     form_class = FriendForm
     success_url = reverse_lazy('p_library:friend_list')
-    template_name = 'friend_edit.html'
+    template_name = 'friend_create.html'
 
 
 class FriendList(ListView):
