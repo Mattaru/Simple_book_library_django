@@ -5,8 +5,8 @@ from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.forms import formset_factory
 
-from p_library.models import Book, Publisher, Author
-from p_library.forms import AuthorForm, BookForm
+from p_library.models import Book, Publisher, Author, Friend
+from p_library.forms import AuthorForm, BookForm, FriendForm
 
 
 class AuthorCreate(CreateView):
@@ -34,6 +34,33 @@ class AuthorDelete(DeleteView):
     fields = ['full_name', 'birth_year', 'country']
     success_url = reverse_lazy('p_library:author_list')
     template_name = 'author_delete.html'
+
+
+class FriendCreate(CreateView):
+    model = Friend
+    form_class = FriendForm
+    success_url = reverse_lazy('p_library:friend_list')
+    template_name = 'friend_edit.html'
+
+
+class FriendList(ListView):
+    model = Friend
+    template_name = 'friend_list.html'
+
+
+class FriendUpdate(UpdateView):
+    model = Friend
+    success_url = reverse_lazy('p_library:friend_list')
+    fields = ['full_name', 'birth_year']
+    template_name = 'friend_edit.html'
+
+
+class FriendDelete(DeleteView):
+    model = Friend
+    form_class = FriendForm
+    fields = ['full_name', 'birth_year']
+    success_url = reverse_lazy('p_library:friend_list')
+    template_name = 'friend_delete.html'
 
 
 def publishers_list(request):

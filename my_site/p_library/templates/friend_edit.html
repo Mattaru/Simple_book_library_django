@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Form for friend create and edit</title>
+    </head>
+
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            <table>
+                {{ form }}
+            </table>
+            <p>
+                <input type="submit" value="Save">
+            </p>
+        </form>
+        <form action="delete/">
+            <button>Delete</button>
+        </form>
+    </body>
+</html>
